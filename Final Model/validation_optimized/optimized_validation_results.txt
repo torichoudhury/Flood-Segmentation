@@ -1,0 +1,16 @@
+OPTIMIZED VALIDATION RESULTS (Threshold: 0.99)
+============================================================
+Average IoU: 0.1132
+
+DETAILED METRICS:
+Accuracy:  0.3116
+Precision: 0.0818
+Recall:    0.9267
+F1-Score:  0.1503
+IoU:       0.0813
+
+CONFUSION MATRIX:
+True Positives:  159,615
+True Negatives:  657,125
+False Positives: 1,792,078
+False Negatives: 12,622

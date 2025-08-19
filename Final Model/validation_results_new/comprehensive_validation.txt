@@ -1,0 +1,120 @@
+COMPREHENSIVE VALIDATION RESULTS
+==================================================
+
+Model Performance Summary:
+Prediction Range: [0.435131, 1.000000]
+Prediction Mean: 0.982630
+Total Ground Truth Flood Pixels: 392,060
+
+Best Threshold: 0.9 (IoU: 0.0775)
+
+Detailed Metrics by Threshold:
+==================================================
+
+Threshold: 0.1
+  IoU: 0.0748
+  F1-Score: 0.1392
+  Precision: 0.0748
+  Recall: 1.0000
+  Accuracy: 0.0748
+  Predicted Flood Pixels: 5,242,880
+  True Positives: 392,060
+  False Positives: 4,850,820
+  False Negatives: 0
+  True Negatives: 0
+
+Threshold: 0.2
+  IoU: 0.0748
+  F1-Score: 0.1392
+  Precision: 0.0748
+  Recall: 1.0000
+  Accuracy: 0.0748
+  Predicted Flood Pixels: 5,242,880
+  True Positives: 392,060
+  False Positives: 4,850,820
+  False Negatives: 0
+  True Negatives: 0
+
+Threshold: 0.3
+  IoU: 0.0748
+  F1-Score: 0.1392
+  Precision: 0.0748
+  Recall: 1.0000
+  Accuracy: 0.0748
+  Predicted Flood Pixels: 5,242,880
+  True Positives: 392,060
+  False Positives: 4,850,820
+  False Negatives: 0
+  True Negatives: 0
+
+Threshold: 0.4
+  IoU: 0.0748
+  F1-Score: 0.1392
+  Precision: 0.0748
+  Recall: 1.0000
+  Accuracy: 0.0748
+  Predicted Flood Pixels: 5,242,880
+  True Positives: 392,060
+  False Positives: 4,850,820
+  False Negatives: 0
+  True Negatives: 0
+
+Threshold: 0.5
+  IoU: 0.0748
+  F1-Score: 0.1392
+  Precision: 0.0748
+  Recall: 1.0000
+  Accuracy: 0.0748
+  Predicted Flood Pixels: 5,242,786
+  True Positives: 392,058
+  False Positives: 4,850,728
+  False Negatives: 2
+  True Negatives: 92
+
+Threshold: 0.6
+  IoU: 0.0748
+  F1-Score: 0.1392
+  Precision: 0.0748
+  Recall: 0.9999
+  Accuracy: 0.0750
+  Predicted Flood Pixels: 5,241,833
+  True Positives: 392,040
+  False Positives: 4,849,793
+  False Negatives: 20
+  True Negatives: 1,027
+
+Threshold: 0.7
+  IoU: 0.0748
+  F1-Score: 0.1392
+  Precision: 0.0748
+  Recall: 0.9998
+  Accuracy: 0.0757
+  Predicted Flood Pixels: 5,237,957
+  True Positives: 391,979
+  False Positives: 4,845,978
+  False Negatives: 81
+  True Negatives: 4,842
+
+Threshold: 0.8
+  IoU: 0.0751
+  F1-Score: 0.1397
+  Precision: 0.0751
+  Recall: 0.9992
+  Accuracy: 0.0796
+  Predicted Flood Pixels: 5,217,087
+  True Positives: 391,737
+  False Positives: 4,825,350
+  False Negatives: 323
+  True Negatives: 25,470
+
+Threshold: 0.9
+  IoU: 0.0775
+  F1-Score: 0.1438
+  Precision: 0.0775
+  Recall: 0.9914
+  Accuracy: 0.1174
+  Predicted Flood Pixels: 5,012,552
+  True Positives: 388,693
+  False Positives: 4,623,859
+  False Negatives: 3,367
+  True Negatives: 226,961
