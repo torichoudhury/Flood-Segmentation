@@ -7,7 +7,6 @@ import numpy as np
 import matplotlib.pyplot as plt
 from torch.utils.data import DataLoader
 from model import FloodSegmentationModel
-from loss import AdaptiveLoss, IoU
 from dataset import FloodDataset
 from tqdm import tqdm
 from sklearn.metrics import confusion_matrix, classification_report
@@ -164,7 +163,7 @@ def create_detailed_visualization(
 def validate_model_comprehensive():
     parser = argparse.ArgumentParser()
     parser.add_argument(
-        "--model_path", type=str, default="best_model.pth", help="Path to trained model"
+        "--model_path", type=str, default="best_model_improved.pth", help="Path to trained model"
     )
     parser.add_argument(
         "--batch_size", type=int, default=4, help="Batch size for validation"
@@ -219,7 +218,7 @@ def validate_model_comprehensive():
             )
 
             # Forward pass
-            outputs = model(sar_images, optical_images)
+            outputs = model(sar_images, optical_images)  # Single output now
 
             # Resize outputs to match mask size
             if outputs.shape[-2:] != masks.shape[-2:]:

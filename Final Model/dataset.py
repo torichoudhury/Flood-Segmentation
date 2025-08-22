@@ -31,9 +31,17 @@ def normalize_image(image):
 
     # Check if image is constant (all values same)
     if np.max(image) == np.min(image):
-        return image * 0.0  # Return zeros if constant
+        return np.zeros_like(image)  # Return zeros if constant
 
-    return (image - np.min(image)) / (np.max(image) - np.min(image))
+    # Robust normalization using percentiles to handle outliers
+    p2, p98 = np.percentile(image, (2, 98))
+    if p98 > p2:
+        image = np.clip(image, p2, p98)
+        image = (image - p2) / (p98 - p2)
+    else:
+        image = (image - np.min(image)) / (np.max(image) - np.min(image) + 1e-8)
+
+    return image.astype(np.float32)
 
 
 # ✅ Function to resize images
@@ -61,20 +69,17 @@ class FloodDataset(Dataset):
         sar_image = normalize_image(resize_image(sar_image))
         optical_image = normalize_image(resize_image(optical_image))
 
-        # Process mask correctly: -1, 0, 1 → 0, 0, 1 → resize → threshold properly
-        # First, convert -1 (unknown) to 0 (no flood), keep 1 as flood
-        mask = np.where(mask == 1, 1, 0).astype(
-            np.float32
-        )  # 1=flood, everything else=0
+        # Process mask: Convert -1 (unknown) to 0, keep 1 as flood
+        mask = np.where(mask == 1, 1, 0).astype(np.float32)
         mask = resize_image(mask)  # Resize flood mask
-        mask = (mask > 0.3).astype(
-            np.float32
-        )  # Lower threshold to preserve flood pixels after resize        # Convert to tensor
+
+        # Use a more conservative threshold to preserve flood pixels
+        mask = (mask > 0.2).astype(np.float32)
+
+        # Convert to tensor
         sar_tensor = torch.tensor(sar_image, dtype=torch.float32).unsqueeze(0)
         optical_tensor = torch.tensor(optical_image, dtype=torch.float32).unsqueeze(0)
-        mask_tensor = torch.tensor(mask, dtype=torch.float32).unsqueeze(
-            0
-        )  # Changed to float32
+        mask_tensor = torch.tensor(mask, dtype=torch.float32).unsqueeze(0)
 
         return sar_tensor, optical_tensor, mask_tensor
 
